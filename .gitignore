@@ -1,0 +1,7 @@
+# SVN noise
+.svn
+
+# osx noise
+.DS_Store
+
+# project specific
