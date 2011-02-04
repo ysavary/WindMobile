@@ -1,0 +1,3 @@
+[submodule "WindMobile-Server"]
+	path = WindMobile-Server
+	url = https://github.com/ysavary/WindMobile-Server.git
