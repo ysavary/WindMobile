@@ -7,3 +7,6 @@
 [submodule "Clients/WindMobile-Android"]
 	path = Clients/WindMobile-Android
 	url = https://github.com/ysavary/WindMobile-Android.git
+[submodule "Clients/WindMobile-WP7"]
+	path = Clients/WindMobile-WP7
+	url = https://github.com/ysavary/WindMobile-WP7.git
