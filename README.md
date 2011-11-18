@@ -8,4 +8,4 @@ http://www.la-haut.info/windmobile
 Licensing
 ---------
 
-Please see the file called agpl.txt
+Please see the file called LICENSE.txt
