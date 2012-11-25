@@ -3,7 +3,10 @@ WindMobile2
 
 Display real-time wind on mobile devices (Android/iOS/Windows)
 
-http://www.la-haut.info/windmobile
+Contributors:
+
+[windspots.com](http://windspots.com)
+[Yann Savary](http://www.la-haut.info)
 
 Documentation
 -------------
