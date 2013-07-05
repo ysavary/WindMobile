@@ -6,7 +6,7 @@ Display real-time wind on mobile devices (Android/iOS/Windows)
 Contributors:
 
 [windspots.com](http://windspots.com)
-[Yann Savary](http://www.la-haut.info)
+[WindMobile](https://plus.google.com/106062358009863154075)
 
 Documentation
 -------------
