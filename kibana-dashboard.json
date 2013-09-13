@@ -5,42 +5,43 @@
       "idQueue": [],
       "list": {
         "0": {
-          "query": "NOT @fields.response:200",
+          "query": "NOT response:200",
           "alias": "",
           "color": "#C15C17",
           "id": 0,
-          "pin": true
+          "pin": true,
+          "type": "lucene"
         },
         "1": {
-          "query": "@fields.response:200 AND NOT  @message:*pingdom*",
-          "alias": "",
-          "color": "#508642",
-          "pin": true,
           "id": 1,
+          "color": "#7EB26D",
+          "query": "response:200 AND NOT message:*pingdom*",
+          "alias": "",
+          "pin": true,
           "type": "lucene"
         },
         "2": {
-          "query": "@fields.agent:*CFNetwork*",
-          "alias": "iOS",
-          "color": "#447EBC",
-          "pin": false,
           "id": 2,
+          "color": "#6ED0E0",
+          "query": "agent:*CFNetwork*",
+          "alias": "iOS",
+          "pin": false,
           "type": "lucene"
         },
         "3": {
-          "query": "@fields.agent:*Android* AND NOT @fields.station_id:*widget*",
-          "alias": "Android",
-          "color": "#F29191",
-          "pin": false,
           "id": 3,
+          "color": "#EF843C",
+          "query": "agent:*Android* AND NOT station_id:*widget*",
+          "alias": "Android",
+          "pin": false,
           "type": "lucene"
         },
         "4": {
-          "query": "@fields.agent:*WP7*",
-          "alias": "WP7",
-          "color": "#82B5D8",
-          "pin": false,
           "id": 4,
+          "color": "#508642",
+          "query": "agent:*WP7*",
+          "alias": "WP7",
+          "pin": false,
           "type": "lucene"
         }
       },
@@ -54,13 +55,12 @@
     },
     "filter": {
       "idQueue": [
-        1,
-        2
+        1
       ],
       "list": {
         "0": {
-          "from": "2013-08-20T13:53:57.757Z",
-          "to": "2013-08-27T13:53:57.757Z",
+          "from": "2013-09-12T09:10:07.564Z",
+          "to": "2013-09-13T09:10:07.564Z",
           "field": "@timestamp",
           "type": "time",
           "mandate": "must",
@@ -83,15 +83,13 @@
       "collapsable": true,
       "panels": [
         {
-          "loading": false,
           "error": "",
-          "span": 5,
+          "span": 6,
           "editable": true,
           "group": [
             "default"
           ],
           "type": "timepicker",
-          "status": "Stable",
           "mode": "relative",
           "time_options": [
             "5m",
@@ -104,7 +102,7 @@
             "7d",
             "30d"
           ],
-          "timespan": "7d",
+          "timespan": "24h",
           "timefield": "@timestamp",
           "timeformat": "",
           "refresh": {
@@ -112,34 +110,8 @@
             "interval": 30,
             "min": 3
           },
-          "filter_id": 0
-        },
-        {
-          "loading": false,
-          "error": false,
-          "span": 3,
-          "editable": true,
-          "group": [
-            "default"
-          ],
-          "type": "dashcontrol",
-          "status": "Stable",
-          "save": {
-            "gist": false,
-            "elasticsearch": true,
-            "local": true,
-            "default": true
-          },
-          "load": {
-            "gist": true,
-            "elasticsearch": true,
-            "local": true
-          },
-          "hide_control": false,
-          "elasticsearch_size": 20,
-          "temp": true,
-          "temp_ttl": "30d",
-          "ttl_enable": true
+          "filter_id": 0,
+          "status": "Stable"
         }
       ]
     },
@@ -151,7 +123,6 @@
       "collapsable": true,
       "panels": [
         {
-          "loading": false,
           "error": false,
           "span": 12,
           "editable": true,
@@ -159,23 +130,15 @@
             "default"
           ],
           "type": "query",
-          "status": "Experimental",
           "label": "Search",
-          "query": "*",
           "history": [
-            "@fields.agent:*WP7*",
-            "@fields.agent:*Android* AND NOT @fields.station_id:*widget*",
-            "@fields.agent:*CFNetwork*",
-            "@fields.response:200 AND NOT  @message:*pingdom*",
-            "NOT @fields.response:200",
-            "@fields.agent:*Android*",
-            "@fieds.agent:*CFNetwork*",
-            "@fields.response:200 AND NOT  @message:test",
-            "@fields.response:200 AND @message:test",
-            "@fields.response:200 and @message:test"
+            "agent:*CFNetwork*",
+            "response:200 AND NOT message:*pingdom*",
+            "NOT response:200"
           ],
           "remember": 10,
-          "pinned": true
+          "pinned": true,
+          "query": "*"
         }
       ]
     },
@@ -183,19 +146,17 @@
       "title": "Filters",
       "height": "50px",
       "editable": true,
-      "collapse": false,
+      "collapse": true,
       "collapsable": true,
       "panels": [
         {
-          "loading": false,
           "error": false,
           "span": 12,
           "editable": true,
           "group": [
             "default"
           ],
-          "type": "filtering",
-          "status": "Experimental"
+          "type": "filtering"
         }
       ]
     },
@@ -207,26 +168,18 @@
       "collapsable": true,
       "panels": [
         {
-          "loading": false,
           "span": 12,
           "editable": true,
           "group": [
             "default"
           ],
           "type": "histogram",
-          "status": "Stable",
-          "query": [
-            {
-              "query": "*",
-              "label": "Query"
-            }
-          ],
           "mode": "count",
           "time_field": "@timestamp",
           "value_field": null,
           "auto_int": true,
           "resolution": 100,
-          "interval": "1h",
+          "interval": "10m",
           "fill": 3,
           "linewidth": 3,
           "timezone": "browser",
@@ -247,6 +200,11 @@
               0,
               1
             ]
+          },
+          "title": "Events over time",
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": false
           }
         }
       ]
@@ -259,17 +217,18 @@
       "collapsable": true,
       "panels": [
         {
-          "loading": false,
           "error": false,
           "span": 3,
           "editable": true,
-          "group": [
-            "default"
-          ],
           "type": "pie",
-          "status": "Deprecating Soon",
+          "editorTabs": [
+            {
+              "title": "Queries",
+              "src": "partials/querySelect.html"
+            }
+          ],
           "query": {
-            "field": "@fields.station_id",
+            "field": "station_id",
             "goal": 100
           },
           "queries": {
@@ -291,13 +250,7 @@
           "mode": "terms",
           "default_field": "DEFAULT",
           "spyable": true,
-          "title": "Ids",
-          "editorTabs": [
-            {
-              "title": "Queries",
-              "src": "partials/querySelect.html"
-            }
-          ]
+          "title": "Stations"
         },
         {
           "span": 3,
@@ -340,7 +293,7 @@
           "value_field": null,
           "auto_int": true,
           "resolution": 100,
-          "interval": "1h",
+          "interval": "10m",
           "fill": 0,
           "linewidth": 3,
           "timezone": "browser",
@@ -355,7 +308,11 @@
           "y-axis": true,
           "percentage": false,
           "interactive": true,
-          "title": "Platforms"
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": false
+          },
+          "title": "Plaforms"
         }
       ]
     },
@@ -367,7 +324,6 @@
       "collapsable": true,
       "panels": [
         {
-          "loading": false,
           "error": false,
           "span": 12,
           "editable": true,
@@ -375,14 +331,12 @@
             "default"
           ],
           "type": "table",
-          "status": "Stable",
-          "query": "*",
           "size": 100,
           "pages": 5,
-          "offset": 400,
+          "offset": 0,
           "sort": [
             "@timestamp",
-            "asc"
+            "desc"
           ],
           "style": {
             "font-size": "9pt"
@@ -390,10 +344,8 @@
           "overflow": "min-height",
           "fields": [
             "@timestamp",
-            "@fields.response",
-            "@fields.station_id",
-            "@message",
-            "@fields.agent"
+            "station_id",
+            "message"
           ],
           "highlight": [],
           "sortable": true,
@@ -411,6 +363,7 @@
             ]
           },
           "field_list": true,
+          "status": "Stable",
           "trimFactor": 300,
           "normTimes": true
         }
@@ -421,7 +374,22 @@
   "index": {
     "interval": "day",
     "pattern": "[logstash-]YYYY.MM.DD",
-    "default": "logstash-*"
+    "default": "NO_TIME_FILTER_OR_INDEX_PATTERN_NOT_MATCHED"
   },
-  "style": "dark"
+  "style": "dark",
+  "failover": false,
+  "loader": {
+    "save_gist": false,
+    "save_elasticsearch": true,
+    "save_local": true,
+    "save_default": true,
+    "save_temp": true,
+    "save_temp_ttl_enable": true,
+    "save_temp_ttl": "30d",
+    "load_gist": true,
+    "load_elasticsearch": true,
+    "load_elasticsearch_size": 20,
+    "load_local": true,
+    "hide": false
+  }
 }
