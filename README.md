@@ -1,12 +1,7 @@
-WindMobile2
-===========
+WindMobile - real-time weather
+==============================
 
-Display real-time wind on mobile devices (Android/iOS/Windows)
-
-Contributors:
-
-[windspots.com](http://windspots.com)
-[WindMobile](https://plus.google.com/106062358009863154075)
+Display real-time weather conditions on mobile devices for outdoor sports (paragliding, water sports, ...)
 
 Documentation
 -------------
@@ -17,7 +12,7 @@ https://raw.github.com/ysavary/WindMobile2/master/documentation/WindMobile2.jpg
 
 ### API
 
-https://github.com/ysavary/WindMobile2/blob/master/documentation/api.md
+http://rtwind.mobi/api/2/
 
 Licensing
 ---------
