@@ -5,7 +5,7 @@
       "list": {
         "0": {
           "query": "NOT response:200",
-          "alias": "",
+          "alias": "Errors",
           "color": "#E24D42",
           "id": 0,
           "pin": true,
@@ -14,48 +14,66 @@
         },
         "1": {
           "id": 1,
-          "color": "#7EB26D",
-          "alias": "",
+          "color": "#F2C96D",
+          "alias": "Widget",
           "pin": true,
           "type": "lucene",
           "enable": true,
-          "query": "response:200 AND NOT message:*pingdom*"
+          "query": "response:200 AND NOT message:*pingdom* AND station_id.raw:*widget*"
         },
         "2": {
           "id": 2,
-          "color": "#629E51",
-          "alias": "Android",
-          "pin": false,
-          "type": "lucene",
-          "enable": true,
-          "query": "agent:*Android* AND NOT station_id:*widget*"
-        },
-        "3": {
-          "id": 3,
-          "color": "#70DBED",
-          "alias": "iOS",
-          "pin": false,
-          "type": "lucene",
-          "enable": true,
-          "query": "agent:*CFNetwork*"
-        },
-        "4": {
-          "id": 4,
-          "color": "#447EBC",
-          "alias": "Windows",
-          "pin": false,
-          "type": "lucene",
-          "enable": true,
-          "query": "agent:*WP7*"
-        },
-        "5": {
-          "id": 5,
           "color": "#7EB26D",
           "alias": "No widget",
           "pin": true,
           "type": "lucene",
           "enable": true,
-          "query": "NOT station_id:*widget*"
+          "query": "response:200 AND NOT message:*pingdom* AND NOT station_id.raw:*widget*"
+        },
+        "3": {
+          "id": 3,
+          "color": "#629E51",
+          "alias": "Android",
+          "pin": true,
+          "type": "lucene",
+          "enable": true,
+          "query": "agent:*Android* AND NOT station_id:*widget*"
+        },
+        "4": {
+          "id": 4,
+          "color": "#629E51",
+          "alias": "Android (no widget)",
+          "pin": true,
+          "type": "lucene",
+          "enable": true,
+          "query": "agent:*Android* AND NOT station_id.raw:*widget*"
+        },
+        "5": {
+          "id": 5,
+          "color": "#70DBED",
+          "alias": "iOS",
+          "pin": true,
+          "type": "lucene",
+          "enable": true,
+          "query": "agent:*CFNetwork*"
+        },
+        "6": {
+          "id": 6,
+          "color": "#447EBC",
+          "alias": "Windows",
+          "pin": true,
+          "type": "lucene",
+          "enable": true,
+          "query": "agent:*WP7*"
+        },
+        "7": {
+          "id": 7,
+          "color": "#7EB26D",
+          "alias": "All",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "*"
         }
       },
       "ids": [
@@ -64,7 +82,9 @@
         2,
         3,
         4,
-        5
+        5,
+        6,
+        7
       ]
     },
     "filter": {
@@ -72,7 +92,7 @@
         "0": {
           "type": "time",
           "field": "@timestamp",
-          "from": "now-12h",
+          "from": "now-2d",
           "to": "now",
           "mandate": "must",
           "active": true,
@@ -111,9 +131,9 @@
           "queries": {
             "mode": "selected",
             "ids": [
-              2,
               3,
-              4
+              5,
+              6
             ]
           },
           "title": "Platforms"
@@ -145,7 +165,7 @@
           "queries": {
             "mode": "selected",
             "ids": [
-              1
+              7
             ]
           },
           "tmode": "terms",
@@ -178,7 +198,7 @@
           "queries": {
             "mode": "selected",
             "ids": [
-              5
+              2
             ]
           },
           "tmode": "terms",
@@ -216,7 +236,8 @@
             "mode": "selected",
             "ids": [
               0,
-              1
+              1,
+              2
             ]
           },
           "annotate": {
@@ -231,7 +252,7 @@
           },
           "auto_int": true,
           "resolution": 100,
-          "interval": "5m",
+          "interval": "30m",
           "intervals": [
             "auto",
             "1s",
@@ -292,7 +313,7 @@
           "pages": 5,
           "offset": 0,
           "sort": [
-            "_score",
+            "@timestamp",
             "desc"
           ],
           "style": {
@@ -302,8 +323,9 @@
           "fields": [
             "@timestamp",
             "response",
+            "clientip",
+            "request",
             "station_id",
-            "message",
             "agent"
           ],
           "highlight": [],
@@ -312,17 +334,12 @@
           "paging": true,
           "spyable": true,
           "queries": {
-            "mode": "all",
+            "mode": "selected",
             "ids": [
-              0,
-              1,
-              2,
-              3,
-              4,
-              5
+              7
             ]
           },
-          "field_list": true,
+          "field_list": false,
           "status": "Stable",
           "trimFactor": 300,
           "normTimes": true,
@@ -367,13 +384,16 @@
       "query": "*",
       "pinned": true,
       "history": [
-        "NOT station_id:*widget*",
+        "*",
         "agent:*WP7*",
         "agent:*CFNetwork*",
+        "agent:*Android* AND NOT station_id.raw:*widget*",
         "agent:*Android* AND NOT station_id:*widget*",
-        "response:200 AND NOT message:*pingdom*",
+        "response:200 AND NOT message:*pingdom* AND NOT station_id.raw:*widget*",
+        "response:200 AND NOT message:*pingdom* AND station_id.raw:*widget*",
         "NOT response:200",
-        "agent:*Android* AND NOT station_id.raw:*widget*"
+        " station_id.raw:*widget*",
+        "response:200 AND NOT message:*pingdom*"
       ],
       "remember": 10,
       "enable": true
@@ -420,5 +440,5 @@
       "filter_id": 0
     }
   ],
-  "refresh": false
+  "refresh": "5m"
 }
