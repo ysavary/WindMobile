@@ -12,7 +12,7 @@ https://raw.github.com/ysavary/WindMobile2/master/documentation/WindMobile2.jpg
 
 ### API
 
-http://rtwind.mobi/api/2/
+http://winds.mobi/api/2/
 
 Licensing
 ---------
