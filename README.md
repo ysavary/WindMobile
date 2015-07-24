@@ -1,16 +1,16 @@
-WindMobile - real-time weather
+Wind Mobile - real-time weather
 ==============================
 
-Display real-time weather conditions on mobile devices for outdoor sports (paragliding, water sports, ...)
+[winds.mobi](http://winds.mobi): display real-time weather conditions on mobile devices for outdoor sports (paragliding, water sports, etc).
 
-Follow this project on [Google+](https://plus.google.com/106062358009863154075)
+Follow this project on [Google+](https://www.google.com/+WindsMobi_fr)
 
 Documentation
 -------------
 
 ### Architecture
 
-https://raw.github.com/ysavary/WindMobile2/master/documentation/WindMobile2.jpg
+https://raw.github.com/ysavary/WindMobile/master/documentation/WindMobile2.jpg
 
 ### API
 
