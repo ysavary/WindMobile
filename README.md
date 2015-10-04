@@ -1,5 +1,5 @@
-Wind Mobile - real-time weather
-==============================
+winds.mobi - real-time winds
+============================
 
 [winds.mobi](http://winds.mobi): display real-time weather conditions on mobile devices for outdoor sports (paragliding, water sports, etc).
 
