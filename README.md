@@ -1,20 +1,22 @@
-winds.mobi - real-time winds
-============================
+winds.mobi - real-time weather observations
+===========================================
 
-[winds.mobi](http://winds.mobi): display real-time weather conditions on mobile devices for outdoor sports (paragliding, water sports, etc).
+[winds.mobi](http://winds.mobi): Paraglider pilot, kitesurfer, check real-time weather conditions of your favorite spots on your smartphone, your tablet or your computer.
 
-Follow this project on [Google+](https://www.google.com/+WindsMobi_fr)
+Follow this project on:
+- [Facebook](https://www.facebook.com/WindsMobi/)
+- [Google+](https://www.google.com/+WindsMobi_fr/)
 
 Documentation
 -------------
 
+### API
+
+http://winds.mobi/api/
+
 ### Architecture
 
 https://raw.github.com/ysavary/WindMobile/master/documentation/WindMobile2.jpg
-
-### API
-
-http://winds.mobi/api/2/
 
 Licensing
 ---------
